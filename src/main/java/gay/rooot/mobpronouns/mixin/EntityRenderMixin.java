@@ -9,6 +9,7 @@ import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.text.Text;
 import org.joml.Matrix4f;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -39,7 +40,7 @@ public abstract class EntityRenderMixin<T extends Entity> {
         if (distance > 64 || entity instanceof PlayerEntity) return;
 
         boolean entitySneaking = entity.isSneaky();
-        float labelHeight = entity.getNameLabelHeight();
+        float labelHeight = entity.getHeight() + 0.5f;
         float y = 20;
 
         matrices.push();
@@ -60,5 +61,6 @@ public abstract class EntityRenderMixin<T extends Entity> {
         }
 
         matrices.pop();
+        System.out.println(text);
     }
 }
