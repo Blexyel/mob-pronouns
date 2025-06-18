@@ -8,7 +8,6 @@ public class PronounHelper {
 
     public static String getEntityPronouns(long seed) {
         Random rng = new Random(seed);
-
         // 10% chance of neopronouns (binary pronouns are more common)
         if (rng.nextInt(100) < 10) {
             return neoPronouns[rng.nextInt(neoPronouns.length)];
